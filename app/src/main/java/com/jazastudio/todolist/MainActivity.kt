@@ -16,10 +16,7 @@ import kotlin.collections.ArrayList
 class MainActivity : AppCompatActivity() {
 
     private lateinit var myDatabase: MyDatabase
-
-
     private lateinit var todoArrayList: ArrayList<Todo>
-    private var data_test: String = ""
     private lateinit var mAdapter: TodoListAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -77,7 +74,6 @@ class MainActivity : AppCompatActivity() {
             if (sizeTodoList != 0) {
                 for (i in 0 until sizeTodoList!!) {
                     todoArrayList.add(allTodos?.get(i)!!)
-                    data_test += "${allTodos.get(i)?.todo_id}"
                     Timber.d("data-$i : ${allTodos.get(i)?.todo_id}")
                     Timber.d("data-$i : ${allTodos.get(i)?.name}")
                 }
@@ -105,7 +101,6 @@ class MainActivity : AppCompatActivity() {
             if (sizeTodoList != 0) {
                 for (i in 0 until sizeTodoList!!) {
                     todoArrayList.add(allTodos?.get(i)!!)
-                    data_test += "${allTodos.get(i)?.todo_id}"
                     Timber.d("data-$i : ${allTodos.get(i)?.todo_id}")
                     Timber.d("data-$i : ${allTodos.get(i)?.name}")
                 }
