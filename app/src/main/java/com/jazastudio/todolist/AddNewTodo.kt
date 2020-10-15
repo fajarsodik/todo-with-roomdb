@@ -87,6 +87,11 @@ class AddNewTodo : AppCompatActivity() {
         return super.onSupportNavigateUp()
     }
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish()
+    }
+
     fun loadTodosById(todoId: Int?) = runBlocking {
         var data = myDatabase.daoAccess()?.fetchTodoListById(todoId)
         inTitle.setText(data?.name)

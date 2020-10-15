@@ -19,14 +19,13 @@ class TodoListAdapter(
     }
 
     override fun onBindViewHolder(holder: TodoListAdapterViewHolder, position: Int) {
-        holder.bindItem(listAllTodos!![position]!!, listenerAdapter)
+        holder.bindItem(listAllTodos[position], listenerAdapter)
     }
 
     override fun getItemCount(): Int = listAllTodos.size
 
     class TodoListAdapterViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bindItem(listAllTodos: Todo, listenerAdapter: (Todo) -> Unit) {
-            val id_todo = listAllTodos.todo_id
             val name_todo = listAllTodos.name
             val description_todo = listAllTodos.description
             itemView.txtName.setText(name_todo)

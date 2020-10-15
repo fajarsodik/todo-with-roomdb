@@ -30,6 +30,8 @@ class MainActivity : AppCompatActivity() {
             MyDatabase.DB_NAME
         ).fallbackToDestructiveMigration().build()
         fab_add_todo.setOnClickListener {
+//            throw RuntimeException("Test Crash") // Force a crash
+
             start(AddNewTodo) { intentSpec, extrasSpec -> // Magic happens here!
                 extrasSpec.isNew = true
             }
@@ -40,6 +42,11 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         loadAllTodos()
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
